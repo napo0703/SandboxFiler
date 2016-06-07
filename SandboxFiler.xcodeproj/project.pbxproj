@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3697411A1D011EBA00F194BD /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 369741191D011EBA00F194BD /* Cartfile */; };
+		3697411D1D0121D900F194BD /* SwiftFilePath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3697411C1D0121D900F194BD /* SwiftFilePath.framework */; };
 		36CEAE491CFD8A510052AB62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CEAE481CFD8A510052AB62 /* AppDelegate.swift */; };
 		36CEAE4B1CFD8A510052AB62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CEAE4A1CFD8A510052AB62 /* ViewController.swift */; };
 		36CEAE4E1CFD8A510052AB62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36CEAE4C1CFD8A510052AB62 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		369741191D011EBA00F194BD /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		3697411C1D0121D900F194BD /* SwiftFilePath.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftFilePath.framework; path = Carthage/Build/iOS/SwiftFilePath.framework; sourceTree = "<group>"; };
 		36CEAE451CFD8A500052AB62 /* SandboxFiler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SandboxFiler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36CEAE481CFD8A510052AB62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36CEAE4A1CFD8A510052AB62 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3697411D1D0121D900F194BD /* SwiftFilePath.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +43,8 @@
 		36CEAE3C1CFD8A500052AB62 = {
 			isa = PBXGroup;
 			children = (
+				3697411C1D0121D900F194BD /* SwiftFilePath.framework */,
+				369741191D011EBA00F194BD /* Cartfile */,
 				36CEAE471CFD8A500052AB62 /* SandboxFiler */,
 				36CEAE461CFD8A500052AB62 /* Products */,
 			);
@@ -74,6 +81,7 @@
 				36CEAE411CFD8A500052AB62 /* Sources */,
 				36CEAE421CFD8A500052AB62 /* Frameworks */,
 				36CEAE431CFD8A500052AB62 /* Resources */,
+				3697411B1D01213500F194BD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -96,6 +104,7 @@
 				TargetAttributes = {
 					36CEAE441CFD8A500052AB62 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = ET98MW4248;
 					};
 				};
 			};
@@ -124,11 +133,29 @@
 			files = (
 				36CEAE531CFD8A510052AB62 /* LaunchScreen.storyboard in Resources */,
 				36CEAE501CFD8A510052AB62 /* Assets.xcassets in Resources */,
+				3697411A1D011EBA00F194BD /* Cartfile in Resources */,
 				36CEAE4E1CFD8A510052AB62 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3697411B1D01213500F194BD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftFilePath.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		36CEAE411CFD8A500052AB62 /* Sources */ = {
@@ -249,10 +276,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SandboxFiler/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tv.loilo.SandboxFiler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -260,10 +295,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SandboxFiler/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tv.loilo.SandboxFiler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -286,6 +329,7 @@
 				36CEAE591CFD8A510052AB62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
